@@ -85,9 +85,7 @@ Tecnologias Utilizadas
 * GitHub
 
 Link para clonar o repositório
-
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-
+https://github.com/jackdemetrio/Gerenciador-de-Livros-AP2.git
 
 Exemplo do Banco de Dados
 
