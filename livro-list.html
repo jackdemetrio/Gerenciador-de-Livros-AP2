@@ -1,0 +1,48 @@
+<section class="card">
+    <h2>Livros cadastrados</h2>
+
+    @if(livros.length > 0 && !carregando) {
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Ano</th>
+                    <th>Editora</th>
+                    <th>Páginas</th>
+                    <th>Disponível</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (livro of livros; track livro.id){
+                    <tr>
+                        <td>{{ livro.id }}</td>
+                        <td>{{ livro.titulo }}</td>
+                        <td>{{ livro.autor }}</td>
+                        <td>{{ livro.categoria }}</td>
+                        <td>{{ livro.anoPublicacao }}</td>
+                        <td>{{ livro.editora }}</td>
+                        <td>{{ livro.paginas }}</td>
+                        <td>{{ livro.disponivel ? 'Sim' : 'Não' }}</td>
+                        <td>
+                            <button type="button" (click)="editar(livro)">Editar</button>
+                            <button type="button" (click)="excluir(livro)">Excluir</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if(carregando) {
+        <p>Carregando livros...</p>
+    }
+
+    @if(livros.length === 0 && !carregando) {
+        <p>Nenhum livro cadastrado.</p>
+    }
+</section>

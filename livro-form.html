@@ -1,0 +1,110 @@
+<section class="card">
+    <h2>{{ title }}</h2>
+    @if(mensagem){
+        <p>{{ mensagem }}</p>
+}
+
+    <form class="form"
+    (ngSubmit)="salvar()"
+    #formLivro="ngForm">
+
+        <label>
+            Título
+            <input
+                type="text"
+                name="titulo"
+                required
+                [(ngModel)]="livro.titulo"
+                placeholder="Ex: Dom Casmurro"
+            />
+        </label>
+
+        <label>
+            Autor
+            <input
+                type="text"
+                name="autor"
+                [(ngModel)]="livro.autor"
+                required
+                placeholder="Ex: Machado de Assis"
+            />
+        </label>
+
+        <label>
+            Categoria
+            <input
+                type="text"
+                name="categoria"
+                required
+                [(ngModel)]="livro.categoria"
+                placeholder="Ex: Romance"
+            />
+        </label>
+
+        <label>
+            Ano de Publicação
+            <input
+                type="number"
+                name="anoPublicacao"
+                required
+                min="1000"
+                max="2100"
+                [(ngModel)]="livro.anoPublicacao"
+                placeholder="Ex: 1899"
+            />
+        </label>
+
+        <label>
+            Editora
+            <input
+                type="text"
+                name="editora"
+                required
+                [(ngModel)]="livro.editora"
+                placeholder="Ex: Editora Globo"
+            />
+        </label>
+
+        <label>
+            Páginas
+            <input
+                type="number"
+                name="paginas"
+                required
+                min="1"
+                [(ngModel)]="livro.paginas"
+                placeholder="Ex: 256"
+            />
+        </label>
+
+        <label>
+            Disponível
+            <div class="botoes-disponivel">
+                <button
+                    type="button"
+                    (click)="livro.disponivel = true"
+                    [class.ativo]="livro.disponivel === true"
+                >
+                    Sim
+                </button>
+
+                <button
+                    type="button"
+                    (click)="livro.disponivel = false"
+                    [class.ativo]="livro.disponivel === false"
+                >
+                    Não
+                </button>
+            </div>
+        </label>
+
+       <!-- <button type="submit">Cadastrar</button> -->
+        <button
+            type="submit"
+            [disabled]="formLivro.invalid"
+            >
+            Cadastrar
+        </button>
+    </form>
+
+</section>
